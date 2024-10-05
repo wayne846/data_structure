@@ -21,6 +21,7 @@ class LinkedList{
         void push_back(T x);
         void erase(T x);
         void clear();
+        int count(T x);
         int size();
 
         T& operator[](int index);
@@ -95,6 +96,19 @@ void LinkedList<T>::clear(){
     }
     mysize = 0;
     root = nullptr;
+}
+
+template <class T>
+int LinkedList<T>::count(T x){
+    Node *current = root;
+    int n = 0;
+    while(current != nullptr){
+        if(current->data == x){
+            n++;
+        }
+        current = current->next;
+    }
+    return n;
 }
 
 template <class T>
