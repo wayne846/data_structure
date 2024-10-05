@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 template <class T>
 class LinkedList{
     private:
@@ -9,7 +7,7 @@ class LinkedList{
                 Node *next;
                 Node(T a){
                     this->data = a;
-                    this->next = NULL;
+                    this->next = nullptr;
                 }
         };
 
@@ -30,7 +28,7 @@ class LinkedList{
 
 template <class T>
 LinkedList<T>::LinkedList(){
-    root = NULL;
+    root = nullptr;
     mysize = 0;
 }
 
@@ -50,13 +48,13 @@ void LinkedList<T>::push_front(T x){
 template <class T>
 void LinkedList<T>::push_back(T x){
     Node *newNode = new Node(x);
-    if(root == NULL){
+    if(root == nullptr){
         root = newNode;
         mysize++;
         return;
     }
     Node *current = root;
-    while(current->next != NULL){
+    while(current->next != nullptr){
         current = current->next;
     }
     current->next = newNode;
@@ -66,22 +64,22 @@ void LinkedList<T>::push_back(T x){
 template <class T>
 void LinkedList<T>::erase(T x){
     Node *current = root;
-    Node *previous = NULL;
-    while(current != NULL && current->data != x){
+    Node *previous = nullptr;
+    while(current != nullptr && current->data != x){
         previous = current;
         current = current->next;
     }
-    if(current == NULL){
+    if(current == nullptr){
         return;
     }else if(current == root){
         root = current->next;
         delete(current);
-        current = NULL;
+        current = nullptr;
         mysize--;
     }else{
         previous->next = current->next;
         delete(current);
-        current = NULL;
+        current = nullptr;
         mysize--;
     }
 }
@@ -89,14 +87,14 @@ void LinkedList<T>::erase(T x){
 template <class T>
 void LinkedList<T>::clear(){
     Node *current = root;
-    while(current != NULL){
+    while(current != nullptr){
         Node *deleteNode = current;
         current = current->next;
         delete(deleteNode);
-        deleteNode = NULL;
+        deleteNode = nullptr;
     }
     mysize = 0;
-    root = NULL;
+    root = nullptr;
 }
 
 template <class T>

@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 template <class T>
 class Queue{
     private:
@@ -9,7 +7,7 @@ class Queue{
                 Node *next;
                 Node(T a){
                     this->data = a;
-                    this->next = NULL;
+                    this->next = nullptr;
                 }
         };
 
@@ -28,7 +26,7 @@ class Queue{
 
 template <class T>
 Queue<T>::Queue(){
-    root = NULL;
+    root = nullptr;
     mysize = 0;
 }
 
@@ -40,13 +38,13 @@ Queue<T>::~Queue(){
 template <class T>
 void Queue<T>::push(T x){
     Node *newNode = new Node(x);
-    if(root == NULL){
+    if(root == nullptr){
         root = newNode;
         mysize++;
         return;
     }
     Node *current = root;
-    while(current->next != NULL){
+    while(current->next != nullptr){
         current = current->next;
     }
     current->next = newNode;
@@ -59,7 +57,7 @@ T Queue<T>::pop(){
     T value = root->data;
     root = root->next;
     delete(deleteNode);
-    deleteNode = NULL;
+    deleteNode = nullptr;
     return value;
 }
 
@@ -71,14 +69,14 @@ T Queue<T>::front(){
 template <class T>
 void Queue<T>::clear(){
     Node *current = root;
-    while(current != NULL){
+    while(current != nullptr){
         Node *deleteNode = current;
         current = current->next;
         delete(deleteNode);
-        deleteNode = NULL;
+        deleteNode = nullptr;
     }
     mysize = 0;
-    root = NULL;
+    root = nullptr;
 }
 
 template <class T>
