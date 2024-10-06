@@ -58,6 +58,7 @@ T Queue<T>::pop(){
     root = root->next;
     delete(deleteNode);
     deleteNode = nullptr;
+    mysize--;
     return value;
 }
 
