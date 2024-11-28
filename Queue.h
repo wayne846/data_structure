@@ -18,8 +18,8 @@ class Queue{
         Queue();
         ~Queue();
         void push(T x);
-        T pop();
-        T front();
+        void pop();
+        T& front();
         void clear();
         int size();
 };
@@ -52,18 +52,16 @@ void Queue<T>::push(T x){
 }
 
 template <class T>
-T Queue<T>::pop(){
+void Queue<T>::pop(){
     Node *deleteNode = root;
-    T value = root->data;
     root = root->next;
     delete(deleteNode);
     deleteNode = nullptr;
     mysize--;
-    return value;
 }
 
 template <class T>
-T Queue<T>::front(){
+T& Queue<T>::front(){
     return root->data;
 }
 
